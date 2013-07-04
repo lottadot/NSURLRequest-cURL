@@ -18,7 +18,9 @@
         
         NSString *params = [[NSString alloc] initWithData:self.HTTPBody encoding:NSUTF8StringEncoding];
         [string appendFormat:@"-d \"%@\" ",params];
+#if !__has_feature(objc_arc)
         [params release];
+#endif
         
     }
     
